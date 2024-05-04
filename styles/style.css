@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.contenedor{
+    margin: auto;
+    width: 50%;
+}
+
+.con{
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+label{
+    display: block;
+    margin-bottom: 5px;
+}
+
+input{
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
