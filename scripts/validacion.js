@@ -30,6 +30,14 @@ telInput.addEventListener("input", function(event){
     event.target.value = tel;
 });
 
+//Validacion para las mesas de modificar
+var telInput = document.getElementById("tableM");
+telInput.addEventListener("input", function(event){
+    var tel = event.target.value;
+    tel = tel.replace(/\D/g, '')
+    event.target.value = tel;
+});
+
 //Validacion para las sillas
 var telInput = document.getElementById("chair");
 telInput.addEventListener("input", function(event){
@@ -39,6 +47,14 @@ telInput.addEventListener("input", function(event){
 });
 //Validacion para las sillas
 var telInput = document.getElementById("mantel");
+telInput.addEventListener("input", function(event){
+    var tel = event.target.value;
+    tel = tel.replace(/\D/g, '')
+    event.target.value = tel;
+});
+
+//Validacion para las id_modificar
+var telInput = document.getElementById("id_modificar");
 telInput.addEventListener("input", function(event){
     var tel = event.target.value;
     tel = tel.replace(/\D/g, '')

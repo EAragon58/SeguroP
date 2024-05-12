@@ -36,8 +36,14 @@ include ("conexion/conexion.php");
           echo '<td>' . $row["table"] . '</td>';
           echo '<td>' . $row["chair"] . '</td>';
           echo '<td>' . $row["tablecloth"] . '</td>';
-          echo '<td>' . $row["address"] . '</td>';
-          echo '<td>' . $row["status"] . '</td>';
+          echo '<td>' . $row["address"] . '</td>';          
+          if($row["status"] == "Pendiente"){
+            echo '<td style = "background-color: red;">' . $row["status"] . '</td>';
+          }elseif($row["status"] == "Entregado"){
+            echo '<td style = "background-color: green;">' . $row["status"] . '</td>';
+          }else{
+            echo '<td>' . $row["status"] . '</td>';
+          }
           echo '</tr>';
         }
       } else {
@@ -54,13 +60,14 @@ include ("conexion/conexion.php");
     <button id="mostrarModificar" class="btn btn-primary">Modificar</button>
   </section>
 
+  <!--Vnetana emergente para Insertar datos-->
   <div class="ventana-flotante" id="ventanaFlotante">
     <div class="contenido">
       <span class="cerrar" id="cerrarVentana">&times;</span>
       <form action="insertar.php" method="post">
         <div class="mb-3">
           <label for="address" class="form-label">Direccion</label>
-          <input type="text" class="form-control" id="address" name="address" maxlength="20" required>
+          <input type="text" class="form-control" id="address" name="address" maxlength="50" required>
         </div>
         <div class="mb-3">
           <label for="table" class="form-label">Mesas</label>
@@ -93,15 +100,15 @@ include ("conexion/conexion.php");
       <form action="modificar.php" method="post">
         <div class="mb-3">
           <label for="id" class="form-label">ID</label>
-          <input type="text" class="form-control" id="id" name="id" maxlength="2" required>
+          <input type="text" class="form-control" id="id_modificar" name="id" maxlength="2" required>
         </div>
         <div class="mb-3">
           <label for="address" class="form-label">Direccion</label>
-          <input type="text" class="form-control" id="address" name="address" maxlength="20">
+          <input type="text" class="form-control" id="address" name="address" maxlength="50">
         </div>
         <div class="mb-3">
           <label for="table" class="form-label">Mesas</label>
-          <input type="text" class="form-control" id="table" name="table" maxlength="2">
+          <input type="text" class="form-control" id="tableM" name="table" maxlength="2">
         </div>
         <div class="mb-3">
           <label for="chair" class="form-label">Sillas</label>
@@ -120,8 +127,7 @@ include ("conexion/conexion.php");
       </form>
     </div>
   </div>
-  <!--Fin de la ventana de modificar-->
-
+  <!--Fin de la ventana de eliminar-->
   <div class="ventana-flotante" id="ventanaeliminar">
     <div class="contenido">
       <span class="cerrar" id="cerrarVentanaE">&times;</span>
@@ -130,7 +136,7 @@ include ("conexion/conexion.php");
           <label for="id" class="form-label">ID</label>
           <input type="text" class="form-control" id="id" name="id" maxlength="2" required>
         </div>
-        <button type="submit" name="eliminar" class="btn btn-primary">Modificar</button>
+        <button type="submit" name="eliminar" class="btn btn-primary">Eliminar</button>
       </form>
     </div>
   </div>
@@ -139,5 +145,4 @@ include ("conexion/conexion.php");
   <script src="scripts/ventana.js"></script>
   <script src="scripts/validacion.js"></script>
 </body>
-
 </html>

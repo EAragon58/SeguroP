@@ -9,7 +9,6 @@ if (isset($_POST["modificar"])) {
     $mantel = $_POST['mantel'];
     $status = $_POST['opciones'];
 
-    //$sql = "UPDATE products SET `table`= '$mesa',chair = '$silla', tablecloth = '$mantel', `address` = '$direccion', `status` = '$status' WHERE id_products = '$id'";
     $sql = "UPDATE products SET `table`= '$mesa',chair = '$silla', tablecloth = '$mantel', `address` = '$direccion', `status` = '$status' WHERE id_products = '$id'";
 
 
