@@ -33,7 +33,7 @@ include ("conexion/conexion.php");
         while ($row = $result->fetch_assoc()) {
           echo '<tr>';
           echo '<th scope="row">' . $row["id_products"] . '</th>';
-          echo '<td>' . $row["table"] . '</td>';
+          echo '<td>' . $row["tablem"] . '</td>';
           echo '<td>' . $row["chair"] . '</td>';
           echo '<td>' . $row["tablecloth"] . '</td>';
           echo '<td>' . $row["address"] . '</td>';          
@@ -52,6 +52,15 @@ include ("conexion/conexion.php");
       ?>
     </tbody>
   </table>
+
+  <?php
+  $sql = ("SELECT SUM(tablem) FROM products");  
+  $result = $conn->query($sql);
+  
+  
+  ?>
+
+  <label for="">Mesas:</label>
 
   <!--Vnetana emergente para agregar-->
   <section>

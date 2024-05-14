@@ -10,8 +10,6 @@ if (isset($_POST["modificar"])) {
     $status = $_POST['opciones'];
 
     $sql = "UPDATE products SET `table`= '$mesa',chair = '$silla', tablecloth = '$mantel', `address` = '$direccion', `status` = '$status' WHERE id_products = '$id'";
-
-
     if (mysqli_query($conn, $sql)) {
       header('location: index.php');
     } else {
